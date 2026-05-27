@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FusionWorkspace — Runtime Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>FusionWorkspace <span class="version" id="fw-version">—</span></h1>
+    <div class="connection">
+      <span class="dot" id="conn-dot"></span>
+      <span id="conn-label">Disconnected</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Subsystem Status -->
+    <section class="card">
+      <h2>Subsystems</h2>
+      <div class="grid" id="subsystems">
+        <div class="tile" data-subsystem="gateway">
+          <span class="tile-status" id="status-gateway">—</span>
+          <div class="tile-label">Gateway</div>
+          <div class="tile-detail" id="detail-gateway"></div>
+        </div>
+        <div class="tile" data-subsystem="memory">
+          <span class="tile-status" id="status-memory">—</span>
+          <div class="tile-label">Memory</div>
+          <div class="tile-detail" id="detail-memory"></div>
+        </div>
+        <div class="tile" data-subsystem="skills">
+          <span class="tile-status" id="status-skills">—</span>
+          <div class="tile-label">Skills</div>
+          <div class="tile-detail" id="detail-skills"></div>
+        </div>
+        <div class="tile" data-subsystem="permissions">
+          <span class="tile-status" id="status-permissions">—</span>
+          <div class="tile-label">Permissions</div>
+          <div class="tile-detail" id="detail-permissions"></div>
+        </div>
+        <div class="tile" data-subsystem="phoenix">
+          <span class="tile-status" id="status-phoenix">—</span>
+          <div class="tile-label">Phoenix</div>
+          <div class="tile-detail" id="detail-phoenix"></div>
+        </div>
+        <div class="tile" data-subsystem="llm">
+          <span class="tile-status" id="status-llm">—</span>
+          <div class="tile-label">LLM</div>
+          <div class="tile-detail" id="detail-llm"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FlameBreaker -->
+    <section class="card">
+      <h2>FlameBreaker</h2>
+      <div class="flamebreaker">
+        <div class="circuit-state" id="circuit-state">CLOSED</div>
+        <div class="circuit-detail" id="circuit-detail">All circuits operational</div>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section class="card">
+      <h2>Metrics</h2>
+      <div class="metrics-grid" id="metrics">
+        <div class="metric"><span class="metric-value" id="m-steps">0</span><span class="metric-label">TAOR Steps</span></div>
+        <div class="metric"><span class="metric-value" id="m-toolCalls">0</span><span class="metric-label">Tool Calls</span></div>
+        <div class="metric"><span class="metric-value" id="m-sessions">0</span><span class="metric-label">Active Sessions</span></div>
+        <div class="metric"><span class="metric-value" id="m-msgTotal">0</span><span class="metric-label">Messages</span></div>
+        <div class="metric"><span class="metric-value" id="m-cacheHit">0</span><span class="metric-label">Cache Hit%</span></div>
+        <div class="metric"><span class="metric-value" id="m-pending">0</span><span class="metric-label">Pending Approvals</span></div>
+      </div>
+    </section>
+
+    <!-- Phoenix Audit Stream -->
+    <section class="card">
+      <h2>Phoenix Audit Stream</h2>
+      <div class="audit-stream" id="audit-stream">
+        <em>Waiting for events…</em>
+      </div>
+    </section>
+
+    <!-- Chat Terminal -->
+    <section class="card">
+      <h2>Agent Terminal</h2>
+      <div class="terminal" id="terminal">
+        <div class="term-output" id="term-output"></div>
+        <div class="term-input-row">
+          <span class="term-prompt">&gt;</span>
+          <input type="text" id="term-input" placeholder="Type a message…" autocomplete="off">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

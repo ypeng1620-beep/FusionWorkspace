@@ -1,0 +1,48 @@
+# FusionWorkspace + Ollama — local development stack
+version: '3.8'
+
+services:
+  fusion-workspace:
+    build: .
+    container_name: fusion-workspace
+    ports:
+      - '${FUSION_PORT:-8080}:8080'
+    environment:
+      - NODE_ENV=production
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - EMBEDDING_ENDPOINT=${EMBEDDING_ENDPOINT:-http://ollama:11434/api/embeddings}
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-nomic-embed-text}
+    volumes:
+      - fusion-data:/app/.fusion-runtime
+      - ./config:/app/config:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'node', '-e', "fetch('http://localhost:8080/health').then(r => r.ok ? process.exit(0) : process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    depends_on:
+      ollama:
+        condition: service_healthy
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: fusion-ollama
+    ports:
+      - '11434:11434'
+    volumes:
+      - ollama-data:/root/.ollama
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:11434/api/tags']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    profiles:
+      - ollama
+
+volumes:
+  fusion-data:
+  ollama-data:

@@ -1,0 +1,53 @@
+{
+  "hermes": {
+    "root": "D:/AI-Agent-Architecture/FusionWorkspace/hermes-agent-src/hermes-agent-main",
+    "cli": ["cli.py", "rl_cli.py"],
+    "agent": ["agent/", "run_agent.py"],
+    "memory": ["hermes_state.py", "agent/trajectory.py"],
+    "session": ["acp_adapter/session.py", "gateway/session.py", "plugins/memory/honcho/session.py"],
+    "skill": ["toolsets.py"],
+    "files": [
+      "D:/AI-Agent-Architecture/FusionWorkspace/hermes-agent-src/hermes-agent-main/cli.py",
+      "D:/AI-Agent-Architecture/FusionWorkspace/hermes-agent-src/hermes-agent-main/rl_cli.py",
+      "D:/AI-Agent-Architecture/FusionWorkspace/hermes-agent-src/hermes-agent-main/run_agent.py",
+      "D:/AI-Agent-Architecture/FusionWorkspace/hermes-agent-src/hermes-agent-main/hermes_state.py",
+      "D:/AI-Agent-Architecture/FusionWorkspace/hermes-agent-src/hermes-agent-main/agent/trajectory.py",
+      "D:/AI-Agent-Architecture/FusionWorkspace/hermes-agent-src/hermes-agent-main/acp_adapter/session.py",
+      "D:/AI-Agent-Architecture/FusionWorkspace/hermes-agent-src/hermes-agent-main/gateway/session.py",
+      "D:/AI-Agent-Architecture/FusionWorkspace/hermes-agent-src/hermes-agent-main/plugins/memory/honcho/session.py",
+      "D:/AI-Agent-Architecture/FusionWorkspace/hermes-agent-src/hermes-agent-main/toolsets.py"
+    ]
+  },
+  "claude_code": {
+    "root": "D:/Claude-Code-Src/src",
+    "entry": ["entrypoints/cli.tsx", "commands.ts", "Tool.ts", "QueryEngine.ts"],
+    "state": ["state/AppState.tsx", "state/onChangeAppState.ts"],
+    "context": ["context.ts", "utils/context.ts", "utils/contextSuggestions.ts"],
+    "permission": ["types/permissions.ts", "utils/permissions/permissions.ts", "remote/remotePermissionBridge.ts"],
+    "coordinator": ["coordinator/coordinatorMode.ts", "bridge/replBridge.ts"],
+    "mcp": ["tools/MCPTool/MCPTool.ts"],
+    "files": [
+      "D:/Claude-Code-Src/src/entrypoints/cli.tsx",
+      "D:/Claude-Code-Src/src/commands.ts",
+      "D:/Claude-Code-Src/src/Tool.ts",
+      "D:/Claude-Code-Src/src/QueryEngine.ts",
+      "D:/Claude-Code-Src/src/context.ts",
+      "D:/Claude-Code-Src/src/state/AppState.tsx",
+      "D:/Claude-Code-Src/src/state/onChangeAppState.ts",
+      "D:/Claude-Code-Src/src/utils/context.ts",
+      "D:/Claude-Code-Src/src/types/permissions.ts",
+      "D:/Claude-Code-Src/src/utils/permissions/permissions.ts",
+      "D:/Claude-Code-Src/src/coordinator/coordinatorMode.ts",
+      "D:/Claude-Code-Src/src/bridge/replBridge.ts",
+      "D:/Claude-Code-Src/src/tools/MCPTool/MCPTool.ts"
+    ]
+  },
+  "openclaw": {
+    "root": "C:/Users/ypeng/.openclaw/workspace",
+    "gateway": ["scripts/gateway-manager.ps1", "scripts/gateway-health.js"],
+    "agent": [".agents/"],
+    "skill": ["skills/self-evolve-program/", "skills/gstack/"],
+    "cron": ["tasks/create-cron-job.cjs"],
+    "distillation": ["distillation/openclaw/OPENCLAW_ARCHITECTURE_DISTILL.md"]
+  }
+}

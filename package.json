@@ -1,0 +1,46 @@
+{
+  "name": "fusion-workspace",
+  "version": "0.14.0",
+  "description": "AI Agent Fusion Runtime — TAOR loop + FTS5 memory + multi-channel Gateway + 7-mode permissions + Phoenix governance + DuoAgent collaboration",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/start.ts",
+    "build": "tsc",
+    "start": "tsx src/start.ts",
+    "serve": "tsx src/start.ts --config config/runtime.production.template.json",
+    "check:config": "tsx src/start.ts --config config/runtime.production.template.json --validate-config",
+    "check:serve": "tsx scripts/checkRuntimeServer.ts",
+    "check:supervisor": "tsx scripts/checkSupervisorTemplate.ts",
+    "check:production": "tsx scripts/checkProductionReadiness.ts",
+    "check": "tsx src/start.ts --mode agent --memory-backend json --check",
+    "test": "tsx tests/run.ts",
+    "test:watch": "vitest",
+    "test:vitest": "vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.98.0",
+    "better-sqlite3": "^11.10.0",
+    "commander": "^14.0.0",
+    "express": "^5.0.0",
+    "openai": "^6.34.0",
+    "sqlite-vec": "^0.1.9",
+    "uuid": "^13.0.0",
+    "ws": "^8.20.0",
+    "xml2js": "^0.6.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.5.0",
+    "@types/xml2js": "^0.4.14",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.0",
+    "vitest": "^4.1.4"
+  },
+  "engines": {
+    "node": ">=22.14.0"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "mode": "server",
+  "port": 8080,
+  "memoryBackend": "json",
+  "enableMemory": true,
+  "permissionMode": "restricted",
+  "phoenixRestoreLatestSnapshot": true,
+  "phoenixSnapshotOnStop": true,
+  "phoenixSnapshotMaxSnapshots": 20,
+  "externalAdapterAutoRegister": false,
+  "llmProvider": "claude",
+  "llmModel": "claude-sonnet-4-6-20250514",
+  "enableVectorSearch": false,
+  "embeddingDim": 384
+}

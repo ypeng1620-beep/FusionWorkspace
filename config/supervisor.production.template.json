@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "fusion-supervisor-template-0.1.0",
+  "service": {
+    "name": "fusion-workspace",
+    "startCommand": "npm run serve",
+    "preStartChecks": [
+      "npm run check:production"
+    ],
+    "stopSignal": "SIGTERM",
+    "gracefulShutdownMs": 30000,
+    "restart": {
+      "policy": "on-failure",
+      "maxRestarts": 5,
+      "backoffMs": 5000
+    },
+    "probes": {
+      "live": {
+        "url": "http://localhost:8080/api/live",
+        "intervalMs": 10000,
+        "timeoutMs": 3000
+      },
+      "ready": {
+        "url": "http://localhost:8080/api/ready",
+        "intervalMs": 10000,
+        "timeoutMs": 3000
+      },
+      "health": {
+        "url": "http://localhost:8080/api/health",
+        "intervalMs": 30000,
+        "timeoutMs": 5000
+      }
+    },
+    "environment": {
+      "NODE_ENV": "production"
+    },
+    "externalAdapters": {
+      "autoRegister": false,
+      "attachProviderTraffic": false
+    }
+  }
+}
