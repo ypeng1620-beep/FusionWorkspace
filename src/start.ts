@@ -234,7 +234,7 @@ class FusionWorkspace {
       maxSteps: config.maxSteps ?? 20,
       enableMemory: config.enableMemory ?? true,
       wsPath: config.wsPath ?? '/ws',
-      dashboardPath: config.dashboardPath ?? '',
+      dashboardPath: config.dashboardPath ?? './dashboard',
       dashboardEnabled: config.dashboardEnabled ?? true,
       approvalMode: config.approvalMode ?? 'promise',
       pendingRequestExpiryMs: config.pendingRequestExpiryMs ?? 15 * 60 * 1000,

@@ -219,6 +219,8 @@ export class WebSocketChannel implements IChannel {
       heartbeatInterval: config.heartbeatInterval ?? 30000,
       connectionTimeout: config.connectionTimeout ?? 60000,
       maxMessageSize: config.maxMessageSize ?? 1024 * 1024,
+      dashboardEnabled: config.dashboardEnabled ?? true,
+      dashboardPath: config.dashboardPath ?? './dashboard',
     } as Required<ChannelConfig>
     // 补充可选字段（如果提供的话）
     if (config.type === 'webhook') {
