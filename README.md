@@ -310,6 +310,7 @@ npm run check:production   # 生产就绪全流程检查
 
 ```powershell
 npm run serve              # 加载 config/runtime.production.template.json
+npm start -- --mode server --memory-backend json   # 手动指定 JSON 后端
 ```
 
 Runtime 探针端点：
