@@ -32,6 +32,8 @@ import type {
 export interface ClaudeProviderOptions {
   /** Anthropic API key — defaults to `ANTHROPIC_API_KEY` env var. */
   apiKey?: string
+  /** Base URL for Anthropic-compatible APIs (e.g. MiMo, OpenRouter). */
+  baseURL?: string
   /** Model ID forwarded to the API. */
   model?: string
   /** Maximum output tokens per request. */
@@ -162,7 +164,10 @@ export class ClaudeProvider implements LlmProvider {
     this.thinkingEnabled = options?.thinkingEnabled ?? false
     this.thinkingBudgetTokens = options?.thinkingBudgetTokens ?? DEFAULT_THINKING_BUDGET
 
-    this.client = new Anthropic({ apiKey })
+    this.client = new Anthropic({
+      apiKey,
+      ...(options?.baseURL ? { baseURL: options.baseURL } : {}),
+    })
   }
 
   // -----------------------------------------------------------------------

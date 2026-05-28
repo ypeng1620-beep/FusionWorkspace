@@ -8,8 +8,20 @@
   "phoenixSnapshotOnStop": true,
   "phoenixSnapshotMaxSnapshots": 20,
   "externalAdapterAutoRegister": false,
-  "llmProvider": "claude",
-  "llmModel": "claude-sonnet-4-6-20250514",
   "enableVectorSearch": false,
-  "embeddingDim": 384
+  "embeddingDim": 384,
+  "llm": {
+    "providers": [
+      {
+        "id": "mimo",
+        "provider": "claude",
+        "model": "MiMo-v2.5-pro",
+        "default": true,
+        "options": {
+          "apiKey": "tp-s912gjf344n1rm7176514x5ddsl1bhw9arc69wt331ajctjn",
+          "baseURL": "https://token-plan-sgp.xiaomimimo.com/anthropic"
+        }
+      }
+    ]
+  }
 }
