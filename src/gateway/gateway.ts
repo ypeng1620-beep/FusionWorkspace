@@ -702,8 +702,28 @@ export class Gateway {
 
   constructor(events: ChannelEvents = {}) {
     this.router = new MessageRouter()
-    this.events = events
     this.startTime = Date.now()
+
+    // Wrap onConnect / onDisconnect to keep the Gateway-level session
+    // map in sync with per-channel sessions, so that sendToSession
+    // always finds a real session with a transport.
+    const onConnect = events.onConnect
+    const onDisconnect = events.onDisconnect
+
+    this.events = {
+      ...events,
+      onConnect: async (session) => {
+        this.sessions.set(session.id, session)
+        this.stats.totalConnections++
+        this.stats.activeSessions = this.sessions.size
+        await onConnect?.(session)
+      },
+      onDisconnect: async (session, reason) => {
+        this.sessions.delete(session.id)
+        this.stats.activeSessions = this.sessions.size
+        await onDisconnect?.(session, reason)
+      },
+    }
 
     this.stats = {
       uptime: 0,
