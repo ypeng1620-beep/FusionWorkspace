@@ -3,7 +3,7 @@
   "port": 8080,
   "memoryBackend": "json",
   "enableMemory": true,
-  "permissionMode": "restricted",
+  "permissionMode": "auto",
   "phoenixRestoreLatestSnapshot": true,
   "phoenixSnapshotOnStop": true,
   "phoenixSnapshotMaxSnapshots": 20,
