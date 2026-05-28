@@ -15,7 +15,7 @@
       {
         "id": "mimo",
         "provider": "claude",
-        "model": "MiMo-v2.5-pro",
+        "model": "mimo-v2.5",
         "default": true,
         "options": {
           "apiKey": "tp-s912gjf344n1rm7176514x5ddsl1bhw9arc69wt331ajctjn",
